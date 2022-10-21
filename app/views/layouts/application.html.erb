@@ -1,16 +1,41 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>FswdTodolist</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+ <!DOCTYPE html>
+ <html>
+   <head>
+     <title>FswdTodolist</title>
+     <meta name="viewport" content="width=device-width,initial-scale=1">
+     <%= csrf_meta_tags %>
+     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+     <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+   </head>
 
-  <body>
-    <%= yield %>
-  </body>
-</html>
+   <body class="<%= controller_name %> <%= action_name %>">
+     <div class="container">
+       <h3>To-Do List</h3>
+       <hr />
+       <form id="add-item" class="row row-cols-auto align-items-center">
+         <div class="flex-grow-1">
+           <input
+             class="input-entry"
+             type="text"
+             placeholder="Add new item"
+             required
+           ></input>
+          </div>
+         <button class="btn btn-success">add</button>
+       </form>
+       <hr />
+       <%= yield %>
+       <div class="container">
+       <hr />
+       <div id="filter-btns" class=" row row-cols-auto justify-content-end">
+         <button id="filter-all" class="btn" checked>all</button>
+         <button id="filter-active" class="btn">active</button>
+         <button id="filter-completed" class="btn">completed</button>
+       </div>
+       </div>
+     </div>
+   </body>
+ </html>
